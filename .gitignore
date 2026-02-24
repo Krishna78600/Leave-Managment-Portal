@@ -1,0 +1,23 @@
+# ===== BACKEND (Spring Boot / Maven) =====
+backend/target/
+backend/.mvn/
+backend/*.log
+backend/application-local.properties
+
+# ===== FRONTEND (Next.js / Node) =====
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/.env*.local
+
+# ===== IDE Files =====
+.idea/
+*.iml
+.vscode/settings.json
+.DS_Store
+Thumbs.db
+
+# ===== SECRETS — Never commit these =====
+*.env
+application-secrets.properties
