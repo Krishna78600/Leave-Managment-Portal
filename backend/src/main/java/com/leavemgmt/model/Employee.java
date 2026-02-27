@@ -1,10 +1,16 @@
 package com.leavemgmt.model;
 
+import com.leavemgmt.enums.Role;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,6 +34,16 @@ public class Employee{
     @Column(name = "password")
     private String password ;
 
+    @ManyToOne
+    @JoinColumn(name = "team_lead_id")
+    private Employee teamLead ;
+
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Employee manager ;
+
+    @Enumerated(EnumType.STRING)
+    private Role role ;
 
     public Long getEmpId() {
         return empId;
@@ -69,5 +85,30 @@ public class Employee{
         this.password = password;
     }
 
+    public Employee getTeamLead() {
+        return teamLead;
+    }
+
+    public void setTeamLead(Employee teamLead) {
+        this.teamLead = teamLead;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    
 }
 
